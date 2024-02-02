@@ -1,7 +1,8 @@
-import { Button, Flex, Grid, Text } from "@radix-ui/themes";
+import { Flex, Grid, IconButton, Text } from "@radix-ui/themes";
 import { useGetCharacters } from "./hooks/useGetCharacters";
 import { CharacterCard } from "./components/CharacterCard";
 import { usePagination } from "./hooks/usePagination";
+import { CaretLeftIcon, CaretRightIcon } from "@radix-ui/react-icons";
 
 export const CharacterList = () => {
 
@@ -20,13 +21,13 @@ export const CharacterList = () => {
       </Grid>
 
       <Flex gap={"2"} justify={"center"} mt={"5"}>
-        <Button onClick={prevPage} disabled={currentPage === 1}>
-          Previous Page
-        </Button>
-        <Text>Page {currentPage}</Text>
-        <Button onClick={nextPage} disabled={!characters || characters.length === 0}>
-          Next Page
-        </Button>
+        <IconButton radius="full" onClick={prevPage} disabled={currentPage === 1}>
+          <CaretLeftIcon />
+        </IconButton>
+        <Text as="span">Page {currentPage}</Text>
+        <IconButton radius="full" onClick={nextPage} disabled={!characters || characters.length === 0}>
+          <CaretRightIcon />
+        </IconButton>
       </Flex>
     </>
   )
