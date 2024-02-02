@@ -4,7 +4,7 @@ import React from 'react'
 export const CharacterCard = ({ id, name, status, species, image, location, origin }) => {
   return (
 
-    <Card>
+    <Card className="animate__animated animate__fadeIn">
       <Flex align={'center'} gap={'1'}>
         <Inset>
           <img src={image} alt="Character's image" style={{

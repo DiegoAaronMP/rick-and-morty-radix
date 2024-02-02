@@ -7,7 +7,7 @@ import { RickAndMortyApp } from './RickAndMortyApp';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Theme>
+    <Theme appearance="light" accentColor="gray" grayColor="slate">
       <RickAndMortyApp />
     </Theme>
   </React.StrictMode>,
