@@ -1,24 +1,47 @@
-import { Badge, Card, Flex, Heading, Inset, Text } from '@radix-ui/themes'
+import { Badge, Box, Card, Flex, Heading, Inset, Strong, Text } from '@radix-ui/themes'
 import React from 'react'
 
-export const CharacterCard = ({ id, name, status, species, image, location }) => {
+export const CharacterCard = ({ id, name, status, species, image, location, origin }) => {
   return (
+
     <Card>
-      <Flex align={'center'} gap={'2'}>
+      <Flex align={'center'} gap={'1'}>
         <Inset>
-          <img src={image} alt="Character's image" />
+          <img src={image} alt="Character's image" style={{
+            display: 'block',
+            objectFit: 'cover',
+            width: '100%',
+            height: 200,
+          }} />
         </Inset>
-        <Badge>{status}</Badge>
-        <Badge>{species}</Badge>
-        <Text>
-          Name:
-          <Heading>{name}</Heading>
-        </Text>
-        <Text>
-          Last known location:
-          <Heading>{location.name}</Heading>
-        </Text>
+
+        <Flex direction='column' mx={'5'}>
+          <Text>
+            <Heading>{name}</Heading>
+            <Box>
+              <Badge color={`${status === 'Alive' ? 'green' : status === 'Dead' ? 'red' : 'gray'}`}>{status}</Badge>
+              &nbsp;
+              <Badge color={`${species === 'Human' ? 'blue' : 'yellow'}`}>{species}</Badge>
+            </Box>
+          </Text>
+
+
+          <Flex direction={'column'} mt={'2'}>
+            <Text size={'3'}>
+              First seen in:
+            </Text>
+            <Text size={'5'} weight={'bold'}>{origin.name}</Text>
+
+            <Text size={'3'}>
+              Last known location:
+            </Text>
+            <Text size={'5'} weight={'bold'}>{location.name}</Text>
+          </Flex>
+
+        </Flex>
       </Flex>
     </Card>
+
+
   )
 }
