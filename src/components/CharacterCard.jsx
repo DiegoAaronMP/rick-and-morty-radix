@@ -22,28 +22,27 @@ export const CharacterCard = ({ id, name, status, species, image, location, orig
           {/* Character name and badges for status and species */}
           <Text>
             <Heading>{name}</Heading>
-            <Box>
+            <Flex gap='1'>
               {/* Badge for character status with dynamic color */}
               <Badge color={`${status === 'Alive' ? 'green' : status === 'Dead' ? 'red' : 'gray'}`}>{status}</Badge>
-              &nbsp;
               {/* Badge for character species with dynamic color */}
               <Badge color={`${species === 'Human' ? 'blue' : 'yellow'}`}>{species}</Badge>
-            </Box>
+            </Flex>
           </Text>
 
           {/* Flex container for location information */}
-          <Flex direction={'column'} mt={'2'}>
+          <Flex direction={'column'} mt={'2'} ma>
             {/* Text indicating first seen location */}
             <Text size={'3'}>
               First seen in:
             </Text>
-            <Text size={'5'} weight={'bold'}>{origin.name}</Text>
+            <Text size={'5'} weight={'medium'}>{origin.name}</Text>
 
              {/* Text indicating last known location */}
             <Text size={'3'}>
               Last known location:
             </Text>
-            <Text size={'5'} weight={'bold'}>{location.name}</Text>
+            <Text size={'5'} weight={'medium'}>{location.name}</Text>
           </Flex>
         </Flex>
       </Flex>

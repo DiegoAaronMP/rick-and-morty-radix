@@ -15,13 +15,10 @@ export const CharacterList = () => {
 
   return (
     <>
-      {/* Title */}
-      <Flex justify={"center"} mt={"8"}>
-        <Heading size={"8"}>Rick and Morty API</Heading>
-      </Flex>
+
 
       {/* Pagination Controls */}
-      <Flex gap={"2"} justify={"between"} p={"5"} align={"center"}>
+      <Flex justify={"between"} p={"5"} align={"center"}>
         {/* Button to navigate to the previous page */}
         <IconButton highContrast size={"4"} radius="full" onClick={prevPage} disabled={currentPage === 1}>
           <CaretLeftIcon width="30" height="30" />
