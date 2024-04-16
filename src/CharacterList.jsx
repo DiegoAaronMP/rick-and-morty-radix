@@ -16,7 +16,16 @@ export const CharacterList = () => {
   return (
     <>
 
-
+      {/* Grid of Character Cards */}
+      <Grid columns={{ md: '2', xs: '1' }} width="auto" gap={"5"} px={{ md: '9', xs: '6' }}>
+        {/* Map through characters array and render CharacterCard for each */}
+        {
+          characters.map(character => (
+            <CharacterCard key={character.id} {...character} />
+          ))
+        }
+      </Grid>
+      
       {/* Pagination Controls */}
       <Flex justify={"between"} p={"5"} align={"center"}>
         {/* Button to navigate to the previous page */}
@@ -30,16 +39,6 @@ export const CharacterList = () => {
           <CaretRightIcon width="30" height="30" />
         </IconButton>
       </Flex>
-
-      {/* Grid of Character Cards */}
-      <Grid columns={{ md: '2', xs: '1' }} width="auto" gap={"5"} px={{ md: '9', xs: '6' }}>
-        {/* Map through characters array and render CharacterCard for each */}
-        {
-          characters.map(character => (
-            <CharacterCard key={character.id} {...character} />
-          ))
-        }
-      </Grid>
     </>
   )
 }
